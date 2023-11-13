@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do list</title>
+    <link rel="stylesheet" href="styleToDo.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h1 class="title">To Do List</h1>
+        <div class="tasks">
+          <input type="text" id="input" placeholder="Add your task" />
+          <button onclick="addTask()">Add</button>
+          <ul id="list"></ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      const inputBox = document.getElementById("input");
+      const listContainer = document.getElementById("list");
+      function addTask() {
+        if (inputBox.value === "") {
+          alert("you must write something");
+        } else {
+          let li = document.createElement("li");
+          li.innerHTML = inputBox.value;
+          listContainer.appendChild(li);
+          let span = document.createElement("span");
+          span.innerHTML = "\u00d7";
+          span.classList.add("delete");
+          li.appendChild(span);
+        }
+        inputBox.value = "";
+      }
+      listContainer.addEventListener("click", (event) => {
+        if (event.target.classList.contains("delete")) {
+          const listItem = event.target.parentElement;
+          listContainer.removeChild(listItem);
+        }
+      });
+    </script>
+  </body>
+</html>
