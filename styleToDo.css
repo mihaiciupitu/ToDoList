@@ -45,3 +45,22 @@ li {
 ul li span {
   margin-left: 150px;
 }
+@media screen and (max-width: 600px) {
+  .box {
+    width: 150px;
+    height: 300px;
+  }
+  #input {
+    width: 85px;
+    height: 10px;
+  }
+  .title {
+    font-size: small;
+  }
+  button {
+    margin-top: 5px;
+  }
+  ul li span {
+    margin-left: 50px;
+  }
+}
